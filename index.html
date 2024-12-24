@@ -146,13 +146,18 @@
     const gitalk = new Gitalk({
       clientID: 'Ov23lirOiLmm0Ttka7WZ',
       clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
-      repo: 'comment-repository',
+      repo: 'bigdata.github.io',
       owner: 'wanqing-chen',
       admin: ['wanqing-chen'],
       distractionFreeMode: false,
       title: `Document comment ${location.hash.match(/#(.*?)([?]|$)/)[1]}`,
       id: location.hash.match(/#(.*?)([?]|$)/)[1]
     })
+    window.onhashchange = function (event) {
+      if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+        location.reload()
+      }
+    }
 </script>
 <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
 </body>

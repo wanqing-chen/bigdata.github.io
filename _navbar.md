@@ -1,16 +1,8 @@
-* 入门
-
-  * [快速开始](zh-cn/quickstart.md)
-  * [多页文档](zh-cn/more-pages.md)
-  * [定制导航栏](zh-cn/custom-navbar.md)
-  * [封面](zh-cn/cover.md)
-
-
-* 配置
-  * [配置项](zh-cn/configuration.md)
-  * [主题](zh-cn/themes.md)
-  * [使用插件](zh-cn/plugins.md)
-  * [Markdown 配置](zh-cn/markdown.md)
-  * [代码高亮](zh-cn/language-highlight.md)
-
-* [:cn:](/zh-cn/)
+* [硬地骇客](https://hardhacker.com/)
+* [硅谷101](https://sv101.fireside.fm/)
+* [V2ex](https://www.v2ex.com/)
+* [掘金](https://juejin.cn/pins)
+* [SQL刷题](https://dwsql.com/)
+* [JSON解析](https://www.json.cn/#gsc.tab=0)
+* [时间戳转化工具](https://tool.lu/timestamp/)
+* [Markdown](https://markdown.com.cn/basic-syntax/headings.html)

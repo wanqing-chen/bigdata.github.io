@@ -1,18 +1,9 @@
-[//]: # (![logo]&#40;_media/bigdata.jpeg&#41;)
+<img width="380px" style="border-radius: 50%" bor src="_media/logo.ico">
 
-[//]: # (# docsify <small>3.5</small>)
+# WanQing-Knowledge-System
 
-<img width="180px" style="border-radius: 50%" bor src="_media/flink_squirrel_1000.ico">
+- 欢迎您来到 WanQing 的知识系统库，我将从零构建自己的大数据知识体系。内容涵盖如下，实时组件： Flink、Paimon、Fluss、Spark ； 离线组件：Hive、Hadoop ；OLAP： Doris、StarRocks ； 编程语言：Java、JVM、Python
 
-# 蘑菇博客
-
-- 蘑菇博客，一个基于微服务架构的前后端分离博客系统。前台使用Vue + Element , 后端使用spring boot + spring cloud + mybatis-plus进行开发，使用 Jwt + Spring Security做登录验证和权限校验，使用ElasticSearch和Solr作为全文检索服务，使用Github Actions完成博客的持续集成，文件支持上传七牛云。
-
-[![star](https://gitee.com/moxi159753/mogu_blog_v2/badge/star.svg?theme=dark)](https://gitee.com/moxi159753/mogu_blog_v2/stargazers)
-[![fork](https://gitee.com/moxi159753/mogu_blog_v2/badge/fork.svg?theme=dark)](https://gitee.com/moxi159753/mogu_blog_v2/members)
-
-[Gitee](<https://gitee.com/moxi159753/mogu_blog_v2>)
-[Github](<https://github.com/moxi624/mogu_blog_v2>)
 [开始阅读](README.md)
 
 

@@ -1,51 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-</head>
-<body>
-<!--  <nav>-->
-<!--    <a href="#/">EN</a>-->
-<!--    <a href="#/zh-cn/">中文</a>-->
-<!--  </nav>-->
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-      name: '',
-      repo: '',
-      loadSidebar: true,
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
-      },
-      subMaxLevel: 3,
-      loadNavbar: true,
-      coverpage: true,
-      onlyCover: true,
-        search: {
-            maxAge: 86400000,               // 过期时间，单位毫秒，默认一天
-            paths: [],                      // or 'auto'，匹配文件路径
-            placeholder: 'Type to search',  // 搜索提示框文字， 支持本地化，例子在下面
-            noData: 'No Results!',          // 找不到结果文字提示，支持本地化，例子在下面
-            depth: 3,                       // 搜索标题的最大程级, 1 - 6
-        }
-    }
-  </script>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" title="light" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+  <link rel="stylesheet" title="dark" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/light.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-switch@1.0.2/dist/docsify-dark-switch.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/disqus.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-  <script>
+  <style type="text/css">
+    /* theme color */
+    :root {
+      /* 即themeColor值 */
+      --theme-color: #42b983;
+    }
+
+    html.dark {
+      /* 深色主题色 */
+      --theme-color: #ea6f5a;
+    }
+
+    /* navs fixed 顶部导航fixed固定*/
+    .app-nav {
+      position: fixed;
+    }
+
+    /* sidebar active bug */
+    .sidebar ul li[class=""]>a {
+      border-right: 2px solid;
+      color: var(--theme-color);
+      font-weight: 600
+    }
+
+    /* toc */
+    .page_toc div[class^="lv"] a {
+      font-weight: 400;
+    }
+
+    :root {
+      --sidebar-nav-link-color--active: var(--theme-color);
+    }
+
+    html.dark {
+      --sidebar-nav-link-color: #c8c8c8;
+    }
+
+    /* section */
+    .markdown-section pre {
+      padding: 0;
+    }
+
+    .markdown-section pre>code {
+      padding: 1rem;
+    }
+
+    /* table dark */
+    html.dark .markdown-section tr:nth-child(2n) {
+      background-color: #4f4f4f;
+    }
+
+    /* tabs */
+    html.dark {
+      --docsifytabs-tab-background: #4f4f4f;
+    }
+
+    html.dark .docsify-tabs--classic>.docsify-tabs__tab--active {
+      border-top: none;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="https://github.com/wanqing-chen/">WanQing的GitHub</a>
+  </nav>
+<div id="app"></div>
+<script>
+  window.$docsify = {
+    name: '大数据全栈知识体系',
+    repo: 'https://github.com/wanqing-chen/bigdata.github.io',
+
+    themeColor: '#42b983', // 设置主题色，即官方vue.css中对应的主题色
+    auto2top: true, // 每次切换页面后自动跳转到页面顶部
+    loadNavbar: true,
+    loadSidebar: true,
+    // subMaxLevel: 2, // 是否把文档里的目录显示在侧边栏里，这里设置不显示，下面有介绍更好用的toc插件实现
+    alias: {
+      '/.*/_navbar.md': '/_navbar.md', // 配置 alias 避免不必要的回退过程
+      '/.*/_sidebar.md': '/_sidebar.md',
+    },
+    coverpage: true,
+    onlyCover: true,
+    search: {
+      maxAge: 86400000,
+      placeholder: '搜索',
+      noData: '找不到结果!',
+      depth: 6,
+      hideOtherSidebarContent: true // 建议设置true，搜索时搜索结果跟侧边栏混在一起了很不友好
+    },
+
+    toc: {
+      tocMaxLevel: 5,
+      target: 'h2, h3, h4, h5, h6',
+      ignoreHeaders: ['<!-- {docsify-ignore} -->', '<!-- {docsify-ignore-all} -->']
+    },
+    count:{
+      countable:true,
+      fontsize:'1em',
+      color:'rgb(90,90,90)',
+      language:'chinese'
+    },
+    tabs: {
+      persist: true,
+      sync: true,
+      theme: 'classic',
+      tabComments: true,
+      tabHeadings: true
+    },
+
+    darkSwitch: {
+      fixed: true, // // switch按钮fixed固定
+    }
+  }
+</script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+<script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-tabs@1.6.1/dist/docsify-tabs.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-dark-switch@1.0.2/dist/docsify-dark-switch.min.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-jsx.min.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+<script>
     const gitalk = new Gitalk({
       clientID: 'Ov23lirOiLmm0Ttka7WZ',
       clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
@@ -56,8 +153,8 @@
       title: `Document comment ${location.hash.match(/#(.*?)([?]|$)/)[1]}`,
       id: location.hash.match(/#(.*?)([?]|$)/)[1]
     })
-  </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+</script>
+<script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
 </body>
+
 </html>

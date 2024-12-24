@@ -64,11 +64,11 @@
       id: location.hash.match(/#(.*?)([?]|$)/)[1]
     })
 
-    // window.onhashchange = function (event) {
-    //   if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
-    //     location.reload()
-    //   }
-    // }
+    window.onhashchange = function (event) {
+      if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+        location.reload()
+      }
+    }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>

@@ -133,13 +133,9 @@
       function (hook, vm) {
         hook.beforeEach(function (html) {
           var url = 'https://github.com/wanqing-chen/bigdata.github.io' + vm.route.file
-          var editHtml = '[EDIT DOCUMENT](' + url + ')'
-          var editHtml_end = '[](' + url + ')'
-          return editHtml
-                  + html
+          return html
                   + '\n----\n'
                   + '> 最后更新时间: {docsify-updated} '
-                  + editHtml_end
         })
       }
     ]

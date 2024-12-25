@@ -1,4 +1,4 @@
-- [**关于**](article/life/关于.md)
+- [**关于**](./article/life/关于.md)
 - **Flink**
     - [Flink简介](article/flink/Flink简介.md)
 - **Paimon**

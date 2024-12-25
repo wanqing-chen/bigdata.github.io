@@ -128,11 +128,21 @@
     darkSwitch: {
       fixed: true, // // switch按钮fixed固定
     },
-    timeUpdater: {
-      text: ">最后更新时间: {docsify-updated}",
-      formatUpdated: "{YYYY}/{MM}/{DD} {HH}:{mm}:{ss}",
-      whereToPlace: "bottom",
-    }
+    formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}:{ss}',
+    plugins: [
+      function (hook, vm) {
+        hook.beforeEach(function (html) {
+          var url = 'https://github.com/wanqing-chen/bigdata.github.io' + vm.route.file
+          var editHtml = '[EDIT DOCUMENT](' + url + ')'
+          var editHtml_end = '[](' + url + ')'
+          return editHtml
+                  + html
+                  + '\n----\n'
+                  + '> 最后更新时间: {docsify-updated} '
+                  + editHtml_end
+        })
+      }
+    ]
 
   }
 </script>
@@ -171,9 +181,6 @@
 <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <!-- plugins -->
 <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script>
 
 
 </body>

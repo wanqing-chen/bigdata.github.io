@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/light.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-switch@1.0.2/dist/docsify-dark-switch.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
   <style type="text/css">
     /* theme color */
     :root {
@@ -89,11 +90,12 @@
     auto2top: true, // 每次切换页面后自动跳转到页面顶部
     loadNavbar: true,
     loadSidebar: true,
-    // subMaxLevel: 2, // 是否把文档里的目录显示在侧边栏里，这里设置不显示，下面有介绍更好用的toc插件实现
+    subMaxLevel: 3, // 是否把文档里的目录显示在侧边栏里，这里设置不显示，下面有介绍更好用的toc插件实现
     alias: {
       '/.*/_navbar.md': '/_navbar.md', // 配置 alias 避免不必要的回退过程
       '/.*/_sidebar.md': '/_sidebar.md',
     },
+    sidebarDisplayLevel: 0, // set sidebar display level
     coverpage: true,
     onlyCover: true,
     search: {
@@ -104,11 +106,11 @@
       hideOtherSidebarContent: true // 建议设置true，搜索时搜索结果跟侧边栏混在一起了很不友好
     },
 
-    toc: {
-      tocMaxLevel: 5,
-      target: 'h2, h3, h4, h5, h6',
-      ignoreHeaders: ['<!-- {docsify-ignore} -->', '<!-- {docsify-ignore-all} -->']
-    },
+    // toc: {
+    //   tocMaxLevel: 5,
+    //   target: 'h2, h3, h4, h5, h6',
+    //   ignoreHeaders: ['<!-- {docsify-ignore} -->', '<!-- {docsify-ignore-all} -->']
+    // },
     count:{
       countable:true,
       fontsize:'1em',
@@ -161,6 +163,9 @@
     }
 </script>
 <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- plugins -->
+<script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
 </body>
 
 </html>

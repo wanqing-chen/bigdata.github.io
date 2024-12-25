@@ -1,6 +1,7 @@
 - [**关于**](./article/life/关于.md)
 - **Flink**
     - [Flink简介](article/flink/Flink简介.md)
+    - [Flink初体验](article/flink/Flink初尝试.md)
 - **Paimon**
     - [Paimon简介](article/paimon/paimon简介.md)
 - [**Spark**](article/spark/spark.md)
@@ -15,7 +16,8 @@
     - StarRocks简介
 - [**Data WareHouse**](article/warehouse/warehouse.md)
 - [**SQL**](article/sql/sql.md)
-- [**Java**](article/java/java.md)
+- **Java**
+  - [JDK的安装](article/java/JDK的安装.md)
 - [**JVM**](article/jvm/jvm.md)
 - [**git**](article/git/git.md)
 - [**多线程**](article/多线程/并发.md)

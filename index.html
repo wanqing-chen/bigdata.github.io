@@ -136,7 +136,23 @@
           return html
                   + '\n----\n'
                   + '> 最后更新时间: {docsify-updated} '
-        })
+        });
+        hook.afterEach(function (html) {
+          return html;
+        });
+        hook.doneEach(function () {
+          const gitalk = new Gitalk({
+            clientID: 'Ov23lirOiLmm0Ttka7WZ',
+            clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
+            repo: 'bigdata.github.io',
+            owner: 'wanqing-chen',
+            admin: ['wanqing-chen'],
+            id: window.location.pathname, // 根据当前页面路径生成唯一标识（很关键，确保不同页面评论区分开）
+            distractionFreeMode: false // 是否开启无干扰模式，可按需设置为true或false
+          });
+
+          gitalk.render('gitalk-container'); // 渲染评论框到指定的DOM元素（需要页面中有对应id的元素）
+        });
       }
     ],
     markdown: {
@@ -146,27 +162,27 @@
         }
       }
     },
-    plugins: [
-      function (hook, vm) {
-        hook.afterEach(function (html) {
-          return html;
-        });
-
-        hook.doneEach(function () {
-          const gitalk = new Gitalk({
-              clientID: 'Ov23lirOiLmm0Ttka7WZ',
-              clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
-              repo: 'bigdata.github.io',
-              owner: 'wanqing-chen',
-              admin: ['wanqing-chen'],
-            id: window.location.pathname, // 根据当前页面路径生成唯一标识（很关键，确保不同页面评论区分开）
-            distractionFreeMode: false // 是否开启无干扰模式，可按需设置为true或false
-          });
-
-          gitalk.render('gitalk-container'); // 渲染评论框到指定的DOM元素（需要页面中有对应id的元素）
-        });
-      }
-    ]
+    // plugins: [
+    //   function (hook, vm) {
+    //     hook.afterEach(function (html) {
+    //       return html;
+    //     });
+    //
+    //     hook.doneEach(function () {
+    //       const gitalk = new Gitalk({
+    //           clientID: 'Ov23lirOiLmm0Ttka7WZ',
+    //           clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
+    //           repo: 'bigdata.github.io',
+    //           owner: 'wanqing-chen',
+    //           admin: ['wanqing-chen'],
+    //         id: window.location.pathname, // 根据当前页面路径生成唯一标识（很关键，确保不同页面评论区分开）
+    //         distractionFreeMode: false // 是否开启无干扰模式，可按需设置为true或false
+    //       });
+    //
+    //       gitalk.render('gitalk-container'); // 渲染评论框到指定的DOM元素（需要页面中有对应id的元素）
+    //     });
+    //   }
+    // ]
 
   }
 </script>

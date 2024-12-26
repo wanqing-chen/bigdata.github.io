@@ -6,6 +6,7 @@
   <title>大数据全栈知识体系</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
+  <!--  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" title="light" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
   <link rel="stylesheet" title="dark" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
@@ -80,7 +81,6 @@
   <a href="https://github.com/wanqing-chen/">WanQing的GitHub</a>
 </nav>
 <div id="app"></div>
-<div id="gitalk-container"></div>
 <script>
   window.$docsify = {
     name: '大数据全栈知识体系',
@@ -136,53 +136,9 @@
           return html
                   + '\n----\n'
                   + '> 最后更新时间: {docsify-updated} '
-        });
-        hook.afterEach(function (html) {
-          return html;
-        });
-        hook.doneEach(function () {
-          const gitalk = new Gitalk({
-            clientID: 'Ov23lirOiLmm0Ttka7WZ',
-            clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
-            repo: 'bigdata.github.io',
-            owner: 'wanqing-chen',
-            admin: ['wanqing-chen'],
-            id: window.location.pathname, // 根据当前页面路径生成唯一标识（很关键，确保不同页面评论区分开）
-            distractionFreeMode: false // 是否开启无干扰模式，可按需设置为true或false
-          });
-
-          gitalk.render('gitalk-container'); // 渲染评论框到指定的DOM元素（需要页面中有对应id的元素）
-        });
+        })
       }
-    ],
-    markdown: {
-      renderer: {
-        code: function (code, lang) {
-          return '<pre><code class="hljs ' + lang + '">' + code + '</code></pre>';
-        }
-      }
-    },
-    // plugins: [
-    //   function (hook, vm) {
-    //     hook.afterEach(function (html) {
-    //       return html;
-    //     });
-    //
-    //     hook.doneEach(function () {
-    //       const gitalk = new Gitalk({
-    //           clientID: 'Ov23lirOiLmm0Ttka7WZ',
-    //           clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
-    //           repo: 'bigdata.github.io',
-    //           owner: 'wanqing-chen',
-    //           admin: ['wanqing-chen'],
-    //         id: window.location.pathname, // 根据当前页面路径生成唯一标识（很关键，确保不同页面评论区分开）
-    //         distractionFreeMode: false // 是否开启无干扰模式，可按需设置为true或false
-    //       });
-    //
-    //       gitalk.render('gitalk-container'); // 渲染评论框到指定的DOM元素（需要页面中有对应id的元素）
-    //     });
-    //   }
-    // ]
+    ]
 
   }
 </script>
@@ -202,25 +158,21 @@
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 <script>
-  // const category = window.$docsify.category; // 假设可获取分类标识，需根据实际项目定义获取方式
-  // const pageShortId = window.$docsify.page.slice(0, 10); // 取页面标识的前10个字符，示例简化方式
-  // const id = `${category}-${pageShortId}`;
-  // const gitalk = new Gitalk({
-  //   clientID: 'Ov23lirOiLmm0Ttka7WZ',
-  //   clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
-  //   repo: 'bigdata.github.io',
-  //   owner: 'wanqing-chen',
-  //   admin: ['wanqing-chen'],
-  //   distractionFreeMode: false,
-  //   id: id,
-  //   title: window.$docsify.title
-  // });
-  // gitalk.render('gitalk-container');
-  // window.onhashchange = function (event) {
-  //   if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
-  //     location.reload()
-  //   }
-  // }
+  const gitalk = new Gitalk({
+    clientID: 'Ov23lirOiLmm0Ttka7WZ',
+    clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
+    repo: 'bigdata.github.io',
+    owner: 'wanqing-chen',
+    admin: ['wanqing-chen'],
+    distractionFreeMode: false,
+    title: `Document comment ${location.hash.match(/#(.*?)([?]|$)/)[1]}`,
+    id: location.hash.match(/#(.*?)([?]|$)/)[1]
+  })
+  window.onhashchange = function (event) {
+    if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+      location.reload()
+    }
+  }
 </script>
 <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
 <!-- plugins -->

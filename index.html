@@ -6,7 +6,6 @@
   <title>大数据全栈知识体系</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
-<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" title="light" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
   <link rel="stylesheet" title="dark" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
@@ -14,8 +13,6 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-switch@1.0.2/dist/docsify-dark-switch.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
-
-  <link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
   <style type="text/css">
     /* theme color */
     :root {
@@ -79,9 +76,9 @@
 </head>
 
 <body>
-  <nav>
-    <a href="https://github.com/wanqing-chen/">WanQing的GitHub</a>
-  </nav>
+<nav>
+  <a href="https://github.com/wanqing-chen/">WanQing的GitHub</a>
+</nav>
 <div id="app"></div>
 <div id="gitalk-container"></div>
 <script>
@@ -135,19 +132,39 @@
     plugins: [
       function (hook, vm) {
         hook.beforeEach(function (html) {
-          var url = 'https://github.com/wanqing-chen/bigdata.github.io/#/.' + vm.route.file
-          // var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
+          var url = 'https://github.com/wanqing-chen/bigdata.github.io' + vm.route.file
           return html
                   + '\n----\n'
                   + '> 最后更新时间: {docsify-updated} '
-          // return (
-          //         editHtml +
-          //         html +
-          //         '\n----\n' +
-          //         'Last modified {docsify-updated} ' +
-          //         editHtml
-          // );
         })
+      }
+    ],
+    markdown: {
+      renderer: {
+        code: function (code, lang) {
+          return '<pre><code class="hljs ' + lang + '">' + code + '</code></pre>';
+        }
+      }
+    },
+    plugins: [
+      function (hook, vm) {
+        hook.afterEach(function (html) {
+          return html;
+        });
+
+        hook.doneEach(function () {
+          const gitalk = new Gitalk({
+              clientID: 'Ov23lirOiLmm0Ttka7WZ',
+              clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
+              repo: 'bigdata.github.io',
+              owner: 'wanqing-chen',
+              admin: ['wanqing-chen'],
+            id: window.location.pathname, // 根据当前页面路径生成唯一标识（很关键，确保不同页面评论区分开）
+            distractionFreeMode: false // 是否开启无干扰模式，可按需设置为true或false
+          });
+
+          gitalk.render('gitalk-container'); // 渲染评论框到指定的DOM元素（需要页面中有对应id的元素）
+        });
       }
     ]
 
@@ -168,47 +185,29 @@
 
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
 <script>
-
-  // 生成 gitalk 插件
-  title = location.hash.match(/#(.*?)([?]|$)/)
-  if (title != null) {
-    title = location.hash.match(/#(.*?)([?]|$)/)[1]
-  }
-
-  // 限制 50 个字符
-  if (title != null) {
-    title = decodeURI(title.substring(1, title.length))
-    if (title.length >= 50) {
-      title = title.substring(title.length - 50, title.length)
-    }
-  } else {
-    title = 'home page'
-  }
-
-
-    const gitalk = new Gitalk({
-      clientID: 'Ov23lirOiLmm0Ttka7WZ',
-      clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
-      repo: 'bigdata.github.io',
-      owner: 'wanqing-chen',
-      admin: ['wanqing-chen'],
-      distractionFreeMode: false,
-      // title: `Document comment ${location.hash.match(/#(.*?)([?]|$)/)[1]}`,
-      // id: location.hash.match(/#(.*?)([?]|$)/)[1]
-      title: title,
-      id: title,
-    })
-
-    window.onhashchange = function (event) {
-      if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
-        location.reload()
-      }
-    }
+  // const category = window.$docsify.category; // 假设可获取分类标识，需根据实际项目定义获取方式
+  // const pageShortId = window.$docsify.page.slice(0, 10); // 取页面标识的前10个字符，示例简化方式
+  // const id = `${category}-${pageShortId}`;
+  // const gitalk = new Gitalk({
+  //   clientID: 'Ov23lirOiLmm0Ttka7WZ',
+  //   clientSecret: 'be51596e0e273acc1efc94045d2f4b5d9b31123d',
+  //   repo: 'bigdata.github.io',
+  //   owner: 'wanqing-chen',
+  //   admin: ['wanqing-chen'],
+  //   distractionFreeMode: false,
+  //   id: id,
+  //   title: window.$docsify.title
+  // });
+  // gitalk.render('gitalk-container');
+  // window.onhashchange = function (event) {
+  //   if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+  //     location.reload()
+  //   }
+  // }
 </script>
 <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <!-- plugins -->
+<!-- plugins -->
 <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
 
 

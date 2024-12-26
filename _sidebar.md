@@ -2,7 +2,7 @@
 - **Flink**
     - [Flink简介](article/flink/Flink简介.md)
     - [Flink初体验](article/flink/Flink初尝试.md)
-    - [DataStreamAPI入门](article/flink/DataStreamAPI入门概念.md)
+    - [DataStreamAPI入门](article/flink/DataStream入门.md)
 - **Paimon**
     - [Paimon简介](article/paimon/paimon简介.md)
 - [**Spark**](article/spark/spark.md)

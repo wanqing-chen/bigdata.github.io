@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 const path = require('path');
 
 // 假设文档所在目录，根据实际情况修改
-const docsDir = path.join(__dirname, 'docs');
+const docsDir = path.join(__dirname, 'article');
 
 function getLastUpdatedTime(filePath) {
     return new Promise((resolve, reject) => {

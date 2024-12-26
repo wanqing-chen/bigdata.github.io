@@ -140,13 +140,25 @@
       fixed: true, // switch按钮fixed固定
     },
     formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}:{ss}',
+    // plugins: [
+    //   function (hook, vm) {
+    //     hook.beforeEach(function (html) {
+    //       var url = 'https://github.com/wanqing-chen/bigdata.github.io' + vm.route.file;
+    //       return html
+    //               + '\n----\n'
+    //               + '> 最后更新时间: {docsify-updated} ';
+    //     })
+    //   }
+    // ]
     plugins: [
       function (hook, vm) {
-        hook.beforeEach(function (html) {
-          var url = 'https://github.com/wanqing-chen/bigdata.github.io' + vm.route.file;
+        const { getLastUpdatedTime } = require('./updateTime.js'); // 引入上面创建的脚本模块，路径根据实际调整
+        hook.beforeEach(async function (html) {
+          const filePath = vm.route.file;
+          const lastUpdatedTime = await getLastUpdatedTime(filePath);
           return html
                   + '\n----\n'
-                  + '> 最后更新时间: {docsify-updated} ';
+                  + `> 最后更新时间: ${lastUpdatedTime}`;
         })
       }
     ]

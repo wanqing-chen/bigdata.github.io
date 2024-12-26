@@ -2,62 +2,43 @@
 <html lang="en">
 
 <head>
-  <!-- 设置页面字符编码为UTF-8 -->
   <meta charset="UTF-8">
   <title>大数据全栈知识体系</title>
-  <!-- 兼容IE浏览器以及Chrome Frame -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <!-- 页面描述信息，可根据实际情况填写准确内容 -->
   <meta name="description" content="Description">
-  <!--
-      viewport设置：
-      width=device-width：使页面宽度与设备宽度一致；
-      user-scalable=no：禁止用户手动缩放页面；
-      initial-scale=1.0：初始缩放比例为1；
-      maximum-scale=1.0：最大缩放比例为1；
-      minimum-scale=1.0：最小缩放比例为1。
-  -->
+  <!--  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <!-- 引入docsify的默认主题样式（浅色主题） -->
   <link rel="stylesheet" title="light" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
-  <!-- 引入docsify的深色主题样式 -->
   <link rel="stylesheet" title="dark" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
-  <!-- 引入目录插件的浅色主题样式 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/light.css">
-  <!-- 引入深色模式切换插件的样式 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-switch@1.0.2/dist/docsify-dark-switch.css">
-  <!-- 引入Gitalk评论插件的样式 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
-  <!-- 引入侧边栏折叠插件的样式 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
   <style type="text/css">
-    /*
-        主题色相关变量定义：
-        --theme-color用于设置整个页面的主题色，在不同主题模式下会有不同的值。
-    */
+    /* theme color */
     :root {
+      /* 即themeColor值 */
       --theme-color: #42b983;
     }
 
     html.dark {
+      /* 深色主题色 */
       --theme-color: #ea6f5a;
-      --sidebar-nav-link-color: #c8c8c8;
-      --docsifytabs-tab-background: #4f4f4f;
     }
 
-    /* navs fixed 顶部导航fixed固定 */
+    /* navs fixed 顶部导航fixed固定*/
     .app-nav {
       position: fixed;
     }
 
-    /* sidebar active bug，用于设置侧边栏激活状态的样式 */
+    /* sidebar active bug */
     .sidebar ul li[class=""]>a {
       border-right: 2px solid;
       color: var(--theme-color);
-      font-weight: 600;
+      font-weight: 600
     }
 
-    /* toc，设置目录相关的样式，如链接字体粗细等 */
+    /* toc */
     .page_toc div[class^="lv"] a {
       font-weight: 400;
     }
@@ -66,7 +47,11 @@
       --sidebar-nav-link-color--active: var(--theme-color);
     }
 
-    /* section，设置代码块等相关样式 */
+    html.dark {
+      --sidebar-nav-link-color: #c8c8c8;
+    }
+
+    /* section */
     .markdown-section pre {
       padding: 0;
     }
@@ -75,13 +60,17 @@
       padding: 1rem;
     }
 
-    /* table dark，用于在深色模式下设置表格隔行背景色样式 */
-    html.dark.markdown-section tr:nth-child(2n) {
+    /* table dark */
+    html.dark .markdown-section tr:nth-child(2n) {
       background-color: #4f4f4f;
     }
 
-    /* tabs，设置tabs在深色模式下的背景等样式 */
-    html.dark.docsify-tabs--classic>.docsify-tabs__tab--active {
+    /* tabs */
+    html.dark {
+      --docsifytabs-tab-background: #4f4f4f;
+    }
+
+    html.dark .docsify-tabs--classic>.docsify-tabs__tab--active {
       border-top: none;
     }
   </style>
@@ -93,21 +82,20 @@
 </nav>
 <div id="app"></div>
 <script>
-  // $docsify配置对象，用于配置docsify相关功能和插件
   window.$docsify = {
     name: '大数据全栈知识体系',
     repo: 'https://github.com/wanqing-chen/bigdata.github.io',
-    // 设置主题色，对应官方vue.css中相关主题色
-    themeColor: '#42b983',
+
+    themeColor: '#42b983', // 设置主题色，即官方vue.css中对应的主题色
     auto2top: true, // 每次切换页面后自动跳转到页面顶部
     loadNavbar: true,
     loadSidebar: true,
-    subMaxLevel: 1, // 是否把文档里的目录显示在侧边栏里（这里设置不显示）
+    subMaxLevel: 1, // 是否把文档里的目录显示在侧边栏里，这里设置不显示，下面有介绍更好用的toc插件实现
     alias: {
       '/.*/_navbar.md': '/_navbar.md', // 配置 alias 避免不必要的回退过程
       '/.*/_sidebar.md': '/_sidebar.md',
     },
-    sidebarDisplayLevel: 0, // 设置侧边栏显示层级
+    sidebarDisplayLevel: 0, // set sidebar display level
     coverpage: true,
     onlyCover: true,
     search: {
@@ -115,19 +103,19 @@
       placeholder: '搜索',
       noData: '找不到结果!',
       depth: 6,
-      hideOtherSidebarContent: true // 建议设置true，避免搜索结果与侧边栏内容混在一起
+      hideOtherSidebarContent: true // 建议设置true，搜索时搜索结果跟侧边栏混在一起了很不友好
     },
-    // toc相关配置（当前被注释掉，如果需要可启用并调整参数）
+
     // toc: {
-    //     tocMaxLevel: 5,
-    //     target: 'h2, h3, h4, h5, h6',
-    //     ignoreHeaders: ['<!-- {docsify-ignore} -->', '<!-- {docsify-ignore-all} -->']
+    //   tocMaxLevel: 5,
+    //   target: 'h2, h3, h4, h5, h6',
+    //   ignoreHeaders: ['<!-- {docsify-ignore} -->', '<!-- {docsify-ignore-all} -->']
     // },
-    count: {
-      countable: true,
-      fontsize: '1em',
-      color: 'rgb(90, 90, 90)',
-      language: 'chinese'
+    count:{
+      countable:true,
+      fontsize:'1em',
+      color:'rgb(90,90,90)',
+      language:'chinese'
     },
     tabs: {
       persist: true,
@@ -136,55 +124,37 @@
       tabComments: true,
       tabHeadings: true
     },
+
     darkSwitch: {
-      fixed: true, // switch按钮fixed固定
+      fixed: true, // // switch按钮fixed固定
     },
     formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}:{ss}',
-    // plugins: [
-    //   function (hook, vm) {
-    //     hook.beforeEach(function (html) {
-    //       var url = 'https://github.com/wanqing-chen/bigdata.github.io' + vm.route.file;
-    //       return html
-    //               + '\n----\n'
-    //               + '> 最后更新时间: {docsify-updated} ';
-    //     })
-    //   }
-    // ]
     plugins: [
       function (hook, vm) {
-        const { getLastUpdatedTime } = require('./updateTime.js'); // 引入上面创建的脚本模块，路径根据实际调整
-        hook.beforeEach(async function (html) {
-          const filePath = vm.route.file;
-          const lastUpdatedTime = await getLastUpdatedTime(filePath);
+        hook.beforeEach(function (html) {
+          var url = 'https://github.com/wanqing-chen/bigdata.github.io' + vm.route.file
           return html
                   + '\n----\n'
-                  + `> 最后更新时间: ${lastUpdatedTime}`;
+                  + '> 最后更新时间: {docsify-updated} '
         })
       }
     ]
-  };
+
+  }
 </script>
-<!-- 引入docsify的图片缩放插件 -->
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-<!-- 引入docsify的表情符号插件 -->
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-<!-- 引入docsify的计数插件 -->
 <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-<!-- 引入docsify核心库 -->
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-<!-- 引入docsify的搜索插件 -->
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-<!-- 引入docsify的目录插件 -->
 <script src="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
-<!-- 引入docsify的tabs插件 -->
 <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1.6.1/dist/docsify-tabs.min.js"></script>
-<!-- 引入docsify的深色模式切换插件 -->
 <script src="//cdn.jsdelivr.net/npm/docsify-dark-switch@1.0.2/dist/docsify-dark-switch.min.js"></script>
-<!-- 引入Prism.js的PHP语法高亮组件（可根据实际需要添加更多语言组件） -->
+
 <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-jsx.min.js"></script>
-<!-- 引入Gitalk评论插件相关代码 -->
+
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 <script>
@@ -197,18 +167,18 @@
     distractionFreeMode: false,
     title: `Document comment ${location.hash.match(/#(.*?)([?]|$)/)[1]}`,
     id: location.hash.match(/#(.*?)([?]|$)/)[1]
-  });
-  // 使用更规范的事件监听方式监听hash变化，在符合条件时重新加载页面
-  window.addEventListener('hashchange', function (event) {
-    if (event.newURL.split('?')[0]!== event.oldURL.split('?')[0]) {
-      location.reload();
+  })
+  window.onhashchange = function (event) {
+    if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+      location.reload()
     }
-  });
+  }
 </script>
-<!-- 引入docsify的分页插件 -->
 <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-<!-- 引入docsify的侧边栏折叠插件 -->
+<!-- plugins -->
 <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
+
 </body>
 
 </html>

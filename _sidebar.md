@@ -6,6 +6,7 @@
     - [TableAPI入门](article/flink/TableAPI入门.md)
     - [Flink概述](article/flink/Flink概述.md)
     - [数据流API简介](article/flink/StreamAPI简介.md)
+    - [数据管道和ETL](article/flink/数据管道和ETL.md)
 - **Paimon**
     - [Paimon简介](article/paimon/paimon简介.md)
 - [**Spark**](article/spark/spark.md)
@@ -26,7 +27,10 @@
 - [**git**](article/git/git.md)
 - [**多线程**](article/多线程/并发.md)
 - [**产品**](article/产品/产品.md)
-- [**运维**](article/运维/运维.md)
+- **运维**
+  - [Centos 系统安装步骤](article/运维/Centos系统安装步骤.md)
+  - [Linux修改镜像源](article/运维/Linux修改镜像源.md)
+  - [CDH扩容步骤](article/运维/CDH扩容步骤.md)
 - [**前端**](article/前端/前端.md)
 - [**经济学习**](article/经济学习/经济学习.md)
 - [**生活**](article/生活/生活.md)

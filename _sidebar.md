@@ -24,7 +24,8 @@
 - **Java**
   - [JDK的安装](article/java/JDK的安装.md)
 - [**JVM**](article/jvm/jvm.md)
-- [**git**](article/git/git.md)
+- **git**
+  - [Git网络配置](article/git/Git网络配置.md)
 - [**多线程**](article/多线程/并发.md)
 - [**产品**](article/产品/产品.md)
 - **运维**

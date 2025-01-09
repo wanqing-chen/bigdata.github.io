@@ -31,7 +31,7 @@
   - [Centos 系统安装步骤](article/运维/Centos系统安装步骤.md)
   - [Linux修改镜像源](article/运维/Linux修改镜像源.md)
 
-[//]: # (  - [CDH扩容步骤]&#40;article/运维/CDH扩容步骤.md&#41;)
+  - [CDH扩容步骤](article/运维/CDH扩容步骤.md)
 - [**前端**](article/前端/前端.md)
 - [**经济学习**](article/经济学习/经济学习.md)
 - [**生活**](article/生活/生活.md)

@@ -7,6 +7,11 @@
     - [Flink概述](article/flink/Flink概述.md)
     - [数据流API简介](article/flink/StreamAPI简介.md)
     - [数据管道和ETL](article/flink/数据管道和ETL.md)
+    - [Event-drivenApplications.md](article/flink/Event-drivenApplications.md)
+    - [Flink架构和运行](article/flink/Flink架构和运行.md)
+    - [StreamingAnalytics](article/flink/StreamingAnalytics.md)
+    - [容错](article/flink/容错.md)
+    - [有状态流处理](article/flink/有状态流处理.md)
 - **Paimon**
     - [Paimon简介](article/paimon/paimon简介.md)
 - [**Spark**](article/spark/spark.md)

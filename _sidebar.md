@@ -12,6 +12,11 @@
     - [StreamingAnalytics](article/flink/StreamingAnalytics.md)
     - [容错](article/flink/容错.md)
     - [有状态流处理](article/flink/有状态流处理.md)
+    - [DataStreamAPI编程](article/flink/DataStreamAPI编程.md)
+    - [Flink架构](article/flink/Flink架构.md)
+    - [事件时间生成水印](article/flink/事件时间生成水印.md)
+    - [执行模式](article/flink/执行模式.md)
+    - [时间流处理](article/flink/时间流处理.md)
 - **Paimon**
     - [Paimon简介](article/paimon/paimon简介.md)
 - [**Spark**](article/spark/spark.md)
@@ -38,6 +43,7 @@
   - [Linux修改镜像源](article/运维/Linux修改镜像源.md)
 
   - [CDH扩容步骤](article/运维/CDH扩容步骤.md)
+  - [OpenMetadata和datahub部署](article/运维/OpenMetadata和datahub部署.md)
 - [**前端**](article/前端/前端.md)
 - [**经济学习**](article/经济学习/经济学习.md)
 - [**生活**](article/生活/生活.md)

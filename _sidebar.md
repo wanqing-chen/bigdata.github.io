@@ -44,6 +44,7 @@
 
   - [CDH扩容步骤](article/运维/CDH扩容步骤.md)
   - [OpenMetadata和datahub部署](article/运维/OpenMetadata和datahub部署.md)
+  - [Linux配置使局域网的其他机器访问虚拟机项目](article/运维/Linux配置使局域网的其他机器访问虚拟机项目.md)
 - [**前端**](article/前端/前端.md)
 - [**经济学习**](article/经济学习/经济学习.md)
 - [**生活**](article/生活/生活.md)

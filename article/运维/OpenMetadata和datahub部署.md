@@ -50,7 +50,12 @@ docker pull docker.1ms.run/elasticsearch:8.10.2
 ## 启动Docker Compose服务
 
 ```
-docker compose -f docker-compose.yml up --detach
+docker compose -f docker-compose.yml up --detach  只有第一次使用
+
+#停止服务
+docker compose stop
+#启动服务
+docker compose start
 ```
 
 ## **登录 OpenMetadata**
@@ -60,3 +65,9 @@ docker compose -f docker-compose.yml up --detach
 密码：admin
 ```
 
+## **登录 datahub**
+
+```
+账号：admin	
+密码：admin
+```

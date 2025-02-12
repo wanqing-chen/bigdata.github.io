@@ -1,6 +1,7 @@
 ## 第一步网络配置
 
 需要添加虚拟机的外网连接配置ip及端口(NAT模式)，操作流程如下:
+
 <img src="article/运维/picture/img48.png" alt="图片alt" title="img48.png">
 <img src="article/运维/picture/img49.png" alt="图片alt" title="img49.png">
 <img src="article/运维/picture/img50.png" alt="图片alt" title="img50.png">
@@ -14,6 +15,7 @@
 ## 第二步:windows系统配置
 
 配置win系统的入站规则，如下图所示:
+
 <img src="article/运维/picture/img52.png" alt="图片alt" title="img52.png">
 <img src="article/运维/picture/img53.png" alt="图片alt" title="img53.png">
 <img src="article/运维/picture/img54.png" alt="图片alt" title="img54.png">
@@ -24,6 +26,7 @@
 ## 第三步:检测ip
 
 查看网络ip地址
+
 <img src="article/运维/picture/img58.png" alt="图片alt" title="img58.png">
 <img src="article/运维/picture/img59.png" alt="图片alt" title="img59.png">
 
